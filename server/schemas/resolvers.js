@@ -5,9 +5,15 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
     Query: {
         getSingleUser: async (_, { id, username }) => {
-            return User.fineOne({
+            const foundUser = User.fineOne({
                 $or: [{ _id: id }, { username: username }],
             });
+            if (!foundUser) {
+                throw new AuthenticationError(
+                    "Cannot find a user with this id!"
+                );
+            }
+            return foundUser;
         },
     },
 
@@ -25,13 +31,11 @@ const resolvers = {
                 $or: [{ username: username }, { email: email }],
             });
             if (!user) {
-                throw new AuthenticationError(
-                    "No user found with this email address"
-                );
+                throw new AuthenticationError("Can't find this user");
             }
             const correctPw = await user.isCorrectPassword(password);
             if (!correctPw) {
-                throw new AuthenticationError("Incorrect credentials");
+                throw new AuthenticationError("Wrong password!");
             }
             const token = signToken(user);
             return { token, user };
