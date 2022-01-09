@@ -40,7 +40,7 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        savedBook: async (_, { body }, context) => {
+        saveBook: async (_, { body }, context) => {
             if (context.user) {
                 await User.findOneAndUpdate(
                     { _id: user._id },
