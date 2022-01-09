@@ -4,7 +4,7 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
     Query: {
-        getSingleUser: async (_, { id, username }) => {
+        me: async (_, { id, username }) => {
             const foundUser = User.fineOne({
                 $or: [{ _id: id }, { username: username }],
             });
@@ -18,7 +18,7 @@ const resolvers = {
     },
 
     Mutation: {
-        createUser: async (_, body) => {
+        addUser: async (_, body) => {
             const user = await User.create(body);
             if (!user) {
                 throw new AuthenticationError("Something is wrong!");
@@ -52,7 +52,7 @@ const resolvers = {
             }
             throw new AuthenticationError("You need to be logged in!");
         },
-        deleteBook: async (_, { bookId }, context) => {
+        removeBook: async (_, { bookId }, context) => {
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: user._id },
