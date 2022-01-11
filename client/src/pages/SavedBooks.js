@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
     Jumbotron,
     Container,
@@ -24,7 +24,7 @@ const SavedBooks = () => {
     console.log(userData, "userData");
     // window.location.reload();
 
-    const [removeBook, { error }] = useMutation(REMOVE_BOOK, {
+    const [removeBook] = useMutation(REMOVE_BOOK, {
         refetchQueries: [{ query: GET_ME }],
     });
 
@@ -40,7 +40,7 @@ const SavedBooks = () => {
         }
 
         try {
-            const { data } = await removeBook({
+            await removeBook({
                 variables: { bookId },
             });
 
