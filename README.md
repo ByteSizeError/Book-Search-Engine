@@ -33,13 +33,33 @@
 
 ### Searching for books
 
+
+https://user-images.githubusercontent.com/37029188/149035680-e38d5e56-9b7c-4718-9f9e-f94d3741392f.mov
+
+
 ### Sign up page
+
+
+https://user-images.githubusercontent.com/37029188/149035802-570a3286-3add-442b-a056-8c2d793e142b.mov
+
 
 ### Saving books
 
+
+https://user-images.githubusercontent.com/37029188/149035832-f118f245-8fdc-4138-b9d3-791f4293ba18.mov
+
+
 ### Deleting books
 
+
+https://user-images.githubusercontent.com/37029188/149035841-7f049314-9564-4aef-8753-5e7ee1c01e70.mov
+
+
 ### Logging back in
+
+
+https://user-images.githubusercontent.com/37029188/149035849-e72c5108-0c0e-41db-91b1-6217c90f35c9.mov
+
 
 ## Usage
 
