@@ -24,7 +24,9 @@ const SavedBooks = () => {
     console.log(userData, "userData");
     // window.location.reload();
 
-    const [removeBook, { error }] = useMutation(REMOVE_BOOK);
+    const [removeBook, { error }] = useMutation(REMOVE_BOOK, {
+        refetchQueries: [{ query: GET_ME }],
+    });
 
     // use this to determine if `useEffect()` hook needs to run again
     // const userDataLength = Object.keys(userData).length;
@@ -44,7 +46,6 @@ const SavedBooks = () => {
 
             // upon success, remove book's id from localStorage
             removeBookId(bookId);
-            // window.location.reload();
         } catch (err) {
             console.error(err);
         }
